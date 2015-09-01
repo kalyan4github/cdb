@@ -10,8 +10,8 @@ import javax.persistence.Id;
 public class Customer {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(name="FIRSTNAME")
 	private String firstName;
@@ -24,8 +24,15 @@ public class Customer {
 	
 	@Column(name="ADDRESS")
 	private String address;	
+		
+	public Integer getId() {
+		return id;
+	}
 	
-	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

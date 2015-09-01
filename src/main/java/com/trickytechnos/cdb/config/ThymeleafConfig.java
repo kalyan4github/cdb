@@ -13,7 +13,7 @@ public class ThymeleafConfig {
 	@Bean
 	public TemplateResolver templateResolver(){
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-		templateResolver.setPrefix("WEB-INF/views/");
+		templateResolver.setPrefix("WEB-INF/views/ui/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
