@@ -14,7 +14,7 @@ public class LinkController {
 	
 	@RequestMapping(value="/newCustomer")
 	public ModelAndView indexPage(){
-		return new ModelAndView("pages/forms/newCustomer");
+		return new ModelAndView("newCustomer");
 	}
 		
 }
