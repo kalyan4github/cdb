@@ -29,7 +29,7 @@ public class CustomerController {
 	private CustomerService customerService;	
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public String addCustomerPage(){
+	public String addCustomerPage(@ModelAttribute Customer customer){
 		
 		logger.info("IN: Customer/add-GET");		
 		return "newCustomer";

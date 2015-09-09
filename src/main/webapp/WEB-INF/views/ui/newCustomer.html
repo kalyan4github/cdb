@@ -31,15 +31,15 @@
                   <h3 class="box-title">* marked fields are mandatory</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="#" data-th-action="@{/cdb/add}" data-th-object="${customer}" method="post">
+                <form role="form" action="#" data-th-action="@{/customer/add}" data-th-object="${customer}" method="post">
                   <div class="box-body">
                     <div class="form-group">
                       <label for="newCustInputfirstname">First Name*</label>
-                      <input type="text" class="form-control" data-th-field="*{firstname}" id="newCustInputfirstname" placeholder="Enter first name"/>
+                      <input type="text" class="form-control" data-th-field="*{firstName}" id="newCustInputfirstname" placeholder="Enter first name"/>
                     </div>
                     <div class="form-group">
                       <label for="newCustInputlastname">Last Name</label>
-                      <input type="text" class="form-control" data-th-field="*{lastname}" id="newCustInputlastname" placeholder="Enter last name"/>
+                      <input type="text" class="form-control" data-th-field="*{lastName}" id="newCustInputlastname" placeholder="Enter last name"/>
                     </div>					
 					<div class="box-body">
 						<div class="form-group">
@@ -52,7 +52,7 @@
 					</div>					
                     <div class="form-group">
                       <label for="newCustInputmobileno">Mobile No</label>
-                      <input type="phone" class="form-control" data-th-field="*{mobileno}" id="newCustInputmobileno" placeholder="Enter mobile no"/>
+                      <input type="phone" class="form-control" data-th-field="*{mobileNo}" id="newCustInputmobileno" placeholder="Enter mobile no"/>
                     </div>                    					
                     <div class="form-group">
                       <label for="newCustInputAddress"> Address</label>
@@ -63,6 +63,14 @@
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Add Customer</button>
                   </div>
+                  
+                  <div >
+					<div class="text-danger" data-th-if="${#fields.hasErrors('firstName')}" data-th-errors="*{firstname}">firstname error</div>
+					<div class="text-danger" data-th-if="${#fields.hasErrors('lastName')}" data-th-errors="*{lastname}">lastname error</div>
+					
+					<div class="text-danger" data-th-if="${#fields.hasErrors('mobileNo')}" data-th-errors="*{mobileno}">mobile no error</div>
+					<div class="text-danger" data-th-if="${#fields.hasErrors('address')}" data-th-errors="*{address}">address error</div>
+				</div>
                 </form>
               </div><!-- /.box -->
 
@@ -77,13 +85,7 @@
             <!-- right column -->
             <div class="col-md-6">
               <!-- general form elements disabled -->
-              	<div >
-					<div class="text-danger" data-th-if="${#fields.hasErrors('firstname')}" data-th-errors="*{firstname}">firstname error</div>
-					<div class="text-danger" data-th-if="${#fields.hasErrors('lastname')}" data-th-errors="*{lastname}">lastname error</div>
-					
-					<div class="text-danger" data-th-if="${#fields.hasErrors('mobileno')}" data-th-errors="*{mobileno}">mobile no error</div>
-					<div class="text-danger" data-th-if="${#fields.hasErrors('address')}" data-th-errors="*{address}">address error</div>
-				</div>
+              	
               <!-- /.box -->
             </div><!--/.col (right) -->
           </div>   <!-- /.row -->
