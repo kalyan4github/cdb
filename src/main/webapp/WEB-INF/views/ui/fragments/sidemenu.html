@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8"/>
-<title>Insert title here</title>
-</head>
-<body>
-	<div th:fragment="menus">
+	
+<div th:fragment="sidemenu">
 		<aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -45,9 +41,9 @@
 				<span class="fa fa-angle-left pull-right"></span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/forms/newCustomer.html" th:href="@{/newCustomer}"> New Customer</a></li>
-                <li><a href="pages/forms/searchCustomer.html"> Search Customer</a></li>
-                <li><a href="pages/forms/viewAllCustomer.html"> View all Customers</a></li>                
+                <li><a href="customer/add" data-th-href="@{/customer/add}"> New Customer</a></li>
+                <li><a href="customer/search"> Search Customer</a></li>
+                <li><a href="customer/viewAllCustomer.html"> View all Customers</a></li>                
               </ul>
             </li>
             
@@ -73,6 +69,5 @@
         </section>
         <!-- /.sidebar -->
       </aside>
-	</div>
-</body>
+</div>
 </html>
