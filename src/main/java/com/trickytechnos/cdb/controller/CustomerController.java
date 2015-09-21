@@ -29,9 +29,15 @@ public class CustomerController {
 	private CustomerService customerService;	
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public String addCustomerPage(@ModelAttribute Customer customer){
+	public String addCustomerPage(Model model){
 		
-		logger.info("IN: Customer/add-GET");		
+		logger.info("IN: Customer/add-GET");
+		
+		if(! model.containsAttribute("customer")) {
+            logger.info("Adding Customer object to model");
+            Customer customer = new Customer();
+            model.addAttribute("customer", customer);
+        }
 		return "newCustomer";
 		
 	}
@@ -40,6 +46,7 @@ public class CustomerController {
 			Model model,RedirectAttributes redirectAttrs){
 		
 		logger.info("IN: Customer/add-POST");
+		//logger.info("mobileno: "+customer.getMobileNo());
 		
 		if(result.hasErrors()){
 			logger.info("Stragies-add error: "+result.toString());
@@ -51,7 +58,7 @@ public class CustomerController {
 			String message="Customer " +customer.getId() +" sucessfully added";
 			redirectAttrs.addAttribute("message", message);
 			model.addAttribute("message", message);
-			return "redirect:/customer/view-customer";
+			return "redirect:/customer/add";
 		}		
 	}
 	

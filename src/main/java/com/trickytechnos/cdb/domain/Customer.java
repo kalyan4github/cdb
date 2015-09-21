@@ -22,17 +22,23 @@ public class Customer extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = -2575693021838304518L;
 
 	@NotNull(message= "{error.customer.firstname.null}")
-	@NotEmpty(message="{error.customer.firstname.null}")
+	@NotEmpty(message="{error.customer.firstname.empty}")
 	@Size(message="{error.customer.firstname.max}")
 	@Column(name="FIRSTNAME",length= 50)
 	private String firstName;
 	
 	@NotNull(message= "{error.customer.lastname.null}")
-	@NotEmpty(message="{error.customer.lastname.null}")
+	@NotEmpty(message="{error.customer.lastname.empty}")
 	@Size(max=50,message="{error.customer.lastname.max}")
 	@Column(name="LASTNAME",length=50)
 	private String lastName;
 	
+	@NotNull(message= "{error.customer.sex.null}")
+	@NotEmpty(message="{error.customer.sex.empty}")
+	@Column(name="SEX")
+	private String sex;
+	
+	@NotNull(message= "{error.customer.mobileno.null}")
 	@Size(max=10,message="{error.customer.mobileno.max}")
 	@Column(name="MOBILENO",length=10)
 	private String mobileNo;
@@ -51,6 +57,13 @@ public class Customer extends BaseEntity implements Serializable {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	public String getMobileNo() {
 		return mobileNo;

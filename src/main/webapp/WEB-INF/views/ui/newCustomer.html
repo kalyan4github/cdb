@@ -43,16 +43,17 @@
                     </div>					
 					<div class="box-body">
 						<div class="form-group">
-						  <label for="newCustInputGender">Gender</label>
+						  <label for="newCustInputGender">Sex</label>
 							<div class="radio,table-responsive">
-								<input type="radio" name="gender" class="flat-red" id="newCustInputGender" value="male" /> Male							
-								<input type="radio" name="gender" class="flat-red" id="newCustInputGender" value="female"/>Female
+								<input type="radio" name="sex" class="flat-red" id="newCustInputGender" data-th-field="*{sex}" value="MALE" /> Male							
+								<input type="radio" name="sex" class="flat-red" id="newCustInputGender" data-th-field="*{sex}" value="FEMALE"/>Female
+								<input type="radio" name="sex" class="flat-red" id="newCustInputGender" data-th-field="*{sex}" value="UNKNOWN"/>Unknown
 							</div>						
 						</div>
 					</div>					
                     <div class="form-group">
                       <label for="newCustInputmobileno">Mobile No</label>
-                      <input type="phone" class="form-control" data-th-field="*{mobileNo}" id="newCustInputmobileno" placeholder="Enter mobile no"/>
+                      <input type="tel" class="form-control" data-th-field="*{mobileNo}" id="newCustInputmobileno" placeholder="Enter mobile no"/>
                     </div>                    					
                     <div class="form-group">
                       <label for="newCustInputAddress"> Address</label>
@@ -67,10 +68,11 @@
                   <div >
 					<div class="text-danger" data-th-if="${#fields.hasErrors('firstName')}" data-th-errors="*{firstname}">firstname error</div>
 					<div class="text-danger" data-th-if="${#fields.hasErrors('lastName')}" data-th-errors="*{lastname}">lastname error</div>
-					
+					<div class="text-danger" data-th-if="${#fields.hasErrors('sex')}" data-th-errors="*{sex}">sex error</div>					
 					<div class="text-danger" data-th-if="${#fields.hasErrors('mobileNo')}" data-th-errors="*{mobileno}">mobile no error</div>
 					<div class="text-danger" data-th-if="${#fields.hasErrors('address')}" data-th-errors="*{address}">address error</div>
 				</div>
+				<div data-th-text="${message}"></div>
                 </form>
               </div><!-- /.box -->
 
